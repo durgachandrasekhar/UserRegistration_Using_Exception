@@ -74,6 +74,24 @@ namespace UserRegistration_Using_Exception
                         Console.WriteLine(e.Message);
                     }
                     break;
+                case 4:
+                    try
+                    {
+                        Console.WriteLine("Enter your Phone Number:");
+                        RegexPatterns phonenum = new RegexPatterns();
+                        bool resultphonenum = phonenum.ValidatePhoneNum(Console.ReadLine());
+                        Console.WriteLine(resultphonenum);
+                        if (resultphonenum == false)
+                        {
+                            throw new MyException("Must contain integers only. Starting with '91' and space and having exact 10 digits as Phone Number.\n====================");
+                        }
+                    }
+                    catch (MyException e)
+                    {
+                        Console.WriteLine("====================\nInvalid Input\n====================");
+                        Console.WriteLine(e.Message);
+                    }
+                    break;
             }
         }
     }
