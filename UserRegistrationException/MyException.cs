@@ -92,6 +92,24 @@ namespace UserRegistration_Using_Exception
                         Console.WriteLine(e.Message);
                     }
                     break;
+                case 5:
+                    try
+                    {
+                        Console.WriteLine("Enter your Password:");
+                        RegexPatterns pass = new RegexPatterns();
+                        bool resultpass = pass.ValidatePassword(Console.ReadLine());
+                        Console.WriteLine(resultpass);
+                        if (resultpass == false)
+                        {
+                            throw new MyException("Must contain Alphanumeric combination.\nConsisting atleast 1 uppercase character, atleast 1 numeric value.\nAnd exactly one special character.\n====================");
+                        }
+                    }
+                    catch (MyException e)
+                    {
+                        Console.WriteLine("====================\nInvalid Input\n====================");
+                        Console.WriteLine(e.Message);
+                    }
+                    break;
             }
         }
     }

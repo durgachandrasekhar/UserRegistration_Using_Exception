@@ -11,6 +11,7 @@ namespace UserRegistration_Using_Exception
         public string RegexLastName = "^[A-Z]{1}[a-z]{3,}$";
         public string RegexEmail = "^[a-z0-9A-Z]+([.][a-zA-Z0-9]+)?[@][a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,2})?$";
         public string RegexPhoneNum = "^[9]{1}[1]{1}[ ]{1}[0-9]{10}$";
+        public string RegexPassword = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+]).{8,}$";
         public bool ValidateName(string firstname)
         {
             return Regex.IsMatch(firstname, RegexName);
@@ -26,6 +27,10 @@ namespace UserRegistration_Using_Exception
         public bool ValidatePhoneNum(string phonenum)
         {
             return Regex.IsMatch(phonenum, RegexPhoneNum);
+        }
+        public bool ValidatePassword(string password)
+        {
+            return Regex.IsMatch(password, RegexPassword);
         }
     }
 }
